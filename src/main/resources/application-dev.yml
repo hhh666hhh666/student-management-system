@@ -1,0 +1,8 @@
+sms:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: mysql
+    port: 3306
+    database: sms
+    username: root
+    password: 1234
