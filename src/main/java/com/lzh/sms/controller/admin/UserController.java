@@ -8,6 +8,8 @@ import com.lzh.sms.properties.JwtProperties;
 import com.lzh.sms.service.UserService;
 import com.lzh.sms.utils.JwtUtil;
 import com.lzh.sms.vo.UserVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +21,7 @@ import java.util.Map;
 
 @RequestMapping("/admin/user")
 @RestController
+@Api(tags = "管理员登录相关接口")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -27,6 +30,7 @@ public class UserController {
     private JwtProperties jwtProperties;
 
     @PostMapping("/login")
+    @ApiOperation("登录")
     public Result<UserVO> login(@RequestBody UserLoginVO userLoginVO) {
 
         User user = userService.login(userLoginVO);
@@ -49,6 +53,7 @@ public class UserController {
     }
 
     @PostMapping("register")
+    @ApiOperation("注册")
     public Result<UserVO> register(@RequestBody UserLoginVO userLoginVO) {
         User user = userService.register(userLoginVO);
 
